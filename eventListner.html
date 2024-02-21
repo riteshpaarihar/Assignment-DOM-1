@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        button {
+            border: 1px solid #fbb72c;
+            background-color: transparent;
+            padding: 10px 15px;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #fbb72c;
+            padding: 10px 15px;
+            color: #ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- onlick -->
+        <button class="onclick" onclick="simpleAlert()">onclick</button>
+        <button id="dblclickk">Double Click</button>
+
+        <p id="divEvent">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ab!</p>
+
+        <input type="text" name="" id="myInput">
+    </div>
+
+
+    <script>
+        // Onclick()
+        function simpleAlert() {
+            alert('this is simple onclick alert')
+        }
+
+        //   Double Click
+        function dblClick() {
+            alert("This a Double Click alert")
+        }
+        let double = document.getElementById("dblclickk");
+        double.addEventListener("dblclick", dblClick)
+
+        //  Mouse Hover and Mouse Out
+
+        let demoDiv = document.getElementById("divEvent");
+        demoDiv.addEventListener("mouseover", handleMouseOver)
+        demoDiv.addEventListener("mouseout", handleMouseOut)
+
+        function handleMouseOver() {
+            this.style.backgroundColor = "#fbb72c"
+        }
+
+        function handleMouseOut() {
+            this.style.backgroundColor = "green"
+        }
+
+        // Onkeypress
+
+        let myInput = document.getElementById("myInput")
+        myInput.addEventListener("keypress", function(event) {
+            this.classList.add("name")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        button {
+            border: 1px solid #fbb72c;
+            background-color: transparent;
+            padding: 10px 15px;
+            color: #000;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #fbb72c;
+            padding: 10px 15px;
+            color: #ffff;
+        }
+        
+        #reset {
+            margin-top: 10px;
+        }
+        
+        input {
+            text-align: center;
+            border: 1px solid #fbb72c;
+        }
+        
+        .btn-con {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="btn-con">
+                <button id="subtract">-</button>
+                <input type="number" value="0" id="display" readonly>
+                <button id="increment">+</button> <br>
+            </div>
+
+            <button id="reset">Reset</button>
+        </div>
+
+    </div>
+
+    <script>
+        let displayElement = document.getElementById("display");
+
+        let displayValue = 0;
+
+        document.getElementById('subtract').addEventListener("click", subtractValue)
+        document.getElementById('increment').addEventListener("click", incrementValue)
+        document.getElementById('reset').addEventListener("click", resetValue)
+
+        function subtractValue() {
+            displayValue = Math.max(displayValue - 1, 0);
+            displayElement.value = displayValue;
+        }
+
+        function incrementValue() {
+            displayValue = displayValue + 1;
+            displayElement.value = displayValue;
+        }
+
+        function resetValue() {
+            displayElement.value = 0;
+        }
+    </script>
+</body>
+
+</html>
